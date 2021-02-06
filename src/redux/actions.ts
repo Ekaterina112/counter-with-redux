@@ -1,5 +1,4 @@
 export enum ACTIONS_TYPE {
-    //enum ведет себя как обьект ACTION.TYPE получаем доступ ко всем константам
     COUNTER_ADD = 'COUNTER_ADD',
     COUNTER_RESET = 'COUNTER_RESET',
     SETTING_VALUES = 'SETTING_VALUES',
@@ -21,25 +20,24 @@ export type CounterResetType = {
 
 export const CounterResetAC = (): CounterResetType => {
     return {
-        type: ACTIONS_TYPE. COUNTER_RESET,
+        type: ACTIONS_TYPE.COUNTER_RESET,
     };
 };
 
 export type SettingValuesType = {
     type: ACTIONS_TYPE.SETTING_VALUES,
     maxValue: number,
-    minValue:number,
-    currentValue:number
+    minValue: number,
+    currentValue: number
 };
 
-export const SettingValuesAC = ( maxValue: number, minValue:number, currentValue:number): SettingValuesType => {
+export const SettingValuesAC = (maxValue: number, minValue: number, currentValue: number): SettingValuesType => {
     return {
         type: ACTIONS_TYPE.SETTING_VALUES,
         maxValue: maxValue,
         minValue: minValue,
-        currentValue:currentValue
-
+        currentValue: currentValue
     };
 };
 
-export type CurrencyReducersTypes =  CounterAddType | CounterResetType | SettingValuesType;
+export type CurrencyReducersTypes = CounterAddType | CounterResetType | SettingValuesType;

@@ -2,7 +2,7 @@
   "name": "exam",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://Ekaterina112.github.io/counter",
+  "homepage": "https://Ekaterina112.github.io/counter-with-redux",
   "dependencies": {
     "@material-ui/core": "^4.11.0",
     "@testing-library/jest-dom": "^4.2.4",

@@ -1,5 +1,6 @@
 import React from 'react';
 import {Button} from '@material-ui/core';
+import {makeStyles} from '@material-ui/core/styles';
 
 
 export type BtnType = {
@@ -8,22 +9,25 @@ export type BtnType = {
     title: string
 }
 
+const useStyles = makeStyles({
+    root: {
+        borderColor: '#ae5c6a',
+        color: '#ae5c6a',
+        fontFamily: 'inherit'
+    },
+});
 
 function Btn(props: BtnType) {
 
+    const classes = useStyles();
     return (
-            <Button
-                style={{
-                    fontFamily: 'inherit',
-                    color: '#ae5c6a',
-                    borderColor: "#ae5c6a"
-                }}
+        <Button classes={{
+            root: classes.root,
+        }}
                 variant="outlined"
                 size="small"
                 onClick={props.click}
-                disabled={props.disabled}
-            >
-                {props.title} </Button>
+                disabled={props.disabled}>{props.title}</Button>
     );
 }
 

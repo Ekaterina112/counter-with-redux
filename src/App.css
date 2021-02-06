@@ -3,6 +3,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
     background-image: url("back.jpg");
     background-position: center;
     background-size: cover; /*//для сохранеия пропорций*/

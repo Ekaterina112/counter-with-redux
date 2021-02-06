@@ -12,9 +12,7 @@ export type SettingsType = {
     setError: (error: string) => void
 }
 
-
 function Settings(props: SettingsType) {
-//delete here states!!!
     let [minValue, setMinValue] = useState<number>(props.count.minValue)
     let [maxValue, setMaxValue] = useState<number>(props.count.maxValue)
 
@@ -23,7 +21,7 @@ function Settings(props: SettingsType) {
             props.setError('incorrect value')
         } else if (isNaN(minValue) || isNaN(maxValue)) {
             props.setError('enter value')
-        } else if (oldMaxValue != maxValue || oldMinValue != minValue) {
+        } else if (oldMaxValue !== maxValue || oldMinValue !== minValue) {
             props.setError('press \'set\'')
         } else {
             props.setError('work')
@@ -93,7 +91,7 @@ function Settings(props: SettingsType) {
                     <Btn
                         title={'set'}
                         click={setCallback}
-                       disabled={props.error !== 'work' && props.error !== 'press \'set\''}/>
+                        disabled={props.error !== 'work' && props.error !== 'press \'set\''}/>
                 </div>
             </Paper>
         </div>

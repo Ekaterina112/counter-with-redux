@@ -1,12 +1,11 @@
-import { createStore, combineReducers} from 'redux';
+import {createStore} from 'redux';
 import {mainReducer} from './mainReducer';
 
 
-
-function saveToLocalStorage<CurrentStateType>(state:CurrentStateType) {
+function saveToLocalStorage<CurrentStateType>(state: CurrentStateType) {
     try {
         const serialisedState = JSON.stringify(state);
-        localStorage.setItem("persistantState", serialisedState);
+        localStorage.setItem('persistantState', serialisedState);
     } catch (e) {
         console.warn(e);
     }
@@ -14,7 +13,7 @@ function saveToLocalStorage<CurrentStateType>(state:CurrentStateType) {
 
 function loadFromLocalStorage() {
     try {
-        const serialisedState = localStorage.getItem("persistantState");
+        const serialisedState = localStorage.getItem('persistantState');
         if (serialisedState === null) return undefined;
         return JSON.parse(serialisedState);
     } catch (e) {
@@ -24,7 +23,7 @@ function loadFromLocalStorage() {
 }
 
 
-let store = createStore(mainReducer,loadFromLocalStorage())
+let store = createStore(mainReducer, loadFromLocalStorage())
 // listen for store changes and use saveToLocalStorage to
 // save them to localStorage
 store.subscribe(() => saveToLocalStorage(store.getState()));

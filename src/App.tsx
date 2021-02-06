@@ -6,23 +6,20 @@ import {useDispatch, useSelector} from 'react-redux';
 import {CounterAddAC, CounterResetAC, SettingValuesAC} from './redux/actions';
 import {CurrentStateType} from './redux/mainReducer';
 
-//не очень понимаю как работает local storage,
-//типизация useSelector => что входит и что выходит
 
 function App() {
-    let count = useSelector<CurrentStateType, CurrentStateType>((state)=> state)
+    let count = useSelector<CurrentStateType, CurrentStateType>((state) => state)
     let dispatch = useDispatch()
-
-
     let [error, setError] = useState<string>('work')
-
 
     function add() {
         dispatch(CounterAddAC())
     }
+
     function reset() {
         dispatch(CounterResetAC())
     }
+
     function settingValues(maxValue: number, minValue: number, currentValue: number) {
         dispatch(SettingValuesAC(maxValue, minValue, currentValue))
     }
@@ -41,8 +38,6 @@ function App() {
                 error={error}
             />
         </div>
-
-
     );
 }
 
